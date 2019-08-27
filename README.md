@@ -1,4 +1,4 @@
-# CustomCalendar
+# Custom Calendar
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
 
@@ -9,3 +9,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Usage
 
 Download project and run npm install. Use `ng serve` to build and run the project. For further customization, it can be done on the calendar component. This is the base frame for month and year calendar.
+
+## Month Calendar Display
+
+![alt text](https://github.com/JoabChua/angular-custom-calendar/blob/master/angular.json/month-cal.png)
