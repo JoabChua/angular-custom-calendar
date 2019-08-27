@@ -1,0 +1,166 @@
+@import '../../styles/variable';
+
+// new custom calendar css
+.section-content{
+  margin-top: 50px;
+}
+
+.btn-setting {
+  .btn-secondary {
+    margin: 0;
+  }
+
+  .active:focus {
+    box-shadow: none !important;
+  }
+
+  .btn-group {
+    float: right;
+  }
+
+  .active {
+    background-color: $white !important;
+    border: 1px solid $brown-grey;
+    color: $black !important;
+  }
+}
+
+.summary-section {
+  padding-top: 20px;
+
+  h5 {
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 10px;
+  }
+}
+
+.upcoming {
+  color: #ffc700;
+}
+
+.completed {
+  color: #7ed714;
+}
+
+.toggle-btn {
+  background-color: transparent;
+  border: 0;
+  font-weight: bold;
+}
+
+.toggle-btn:focus {
+  outline: none;
+}
+
+.cal-btn {
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  text-align: center;
+  width: 24px;
+}
+
+.cal-btn:focus {
+  outline: none;
+}
+
+h5 {
+  font-weight: bold;
+  margin: 10px !important;
+}
+
+.year-grid {
+  margin: 0 auto;
+
+  .year-date-grid {
+    text-align: center;
+  }
+
+  .day-header {
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  h5 {
+    color: #5d9dd5;
+    text-align: center;
+  }
+
+  .got-event {
+    background-color: #ffc700;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-bottom: 0;
+    padding: 5px 0;
+  }
+
+  p {
+    padding: 5px 0;
+  }
+}
+
+.no-pad {
+  padding: 0;
+}
+
+.month-grid {
+  margin: 0 auto;
+  table-layout: fixed;
+  width: 85%;
+}
+
+th {
+  padding: 0 !important;
+  text-align: center;
+}
+
+.date-row {
+  height: 100px;
+}
+
+.yr-header {
+  padding-left: 7%;
+}
+
+.event-btn {
+  float: left;
+}
+
+.month-header,
+.date-display {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-day {
+  background-color: #a9b5c5;
+  border: 1px solid #dee2e6;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 2px;
+  text-align: center;
+  width: 100%;
+}
+
+.date-grid {
+  border: 1px solid #dee2e6;
+  height: 100px;
+  padding-right: 5px;
+  text-align: right;
+  width: 100%;
+}
+
+.expand-mth-calendar {
+  background-color: #f4f9fd;
+  padding: 10px;
+  width: 100%;
+}
+
+.today {
+  background-color: #f0f8ff;
+}

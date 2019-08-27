@@ -1,0 +1,221 @@
+@mixin font {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+@mixin icofont {
+  font-family: 'icomoon';
+}
+
+// Header
+$header-height: 60px;
+$footer-height: 60px;
+$sidebar-width-collapse: 60px;
+$sidebar-width-expanded: 250px;
+
+// Colour
+$blue: #052b5f;
+$blue-faded: #6886b8;
+$blue-light: #98aac3;
+$blue-dark: #000a12;
+$blue-sky: #49bae4;
+$blue-dark-slate: #25436c;
+$blue-cerulean: #0b5dde;
+$blue-ocean: #008195;
+$very-light-pink: #c6c6c6;
+$light-grey-blue: #a8b4c4;
+
+$green: #96c11f;
+$green-apple: #7cd51a;
+$white: #fff;
+$white-2: #f7f7f7;
+$black: #000;
+$grey: #f1f1f1;
+$grey-charcoal: #424751;
+$grey-pale: #f4f9fd;
+$brown-grey: #b0b0b0;
+$red: #e449a6;
+$red-deep: #bc0000;
+
+$text-color: $grey-charcoal;
+$snippet-color: $very-light-pink;
+$placeholder-color: $brown-grey;
+
+$primary-color: $blue;
+$secondary-color: $green;
+$disabled-color: $blue-light;
+
+$error: $red;
+$scrollbar-color: $very-light-pink;
+$table-border-color: $very-light-pink;
+$pagination-color: $very-light-pink;
+$input-border-color: #a8b4c4;
+
+// Calendar
+$upcoming-event-color: #f4ac37;
+$past-event-color: $green-apple;
+
+// Mixin
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+@mixin at-center-all {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin at-center-vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin flex-center-vertical {
+  align-items: center;
+  display: flex;
+}
+
+@mixin flex-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin same-size-flex {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+@mixin nav-carot {
+  @include at-center-vertical;
+  @include icofont;
+  border: 0;
+  content: '\e903';
+  font-size: 20px;
+}
+
+// declare project responsive breakpoints here
+@mixin breakpoint($sreen) {
+  @if $sreen == xxlg {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  } @else if $sreen == xlg {
+    @media (min-width: 1200px) and (max-width: 1439px) {
+      @content;
+    }
+  } @else if $sreen == lg {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $sreen == aboveLg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $sreen == belowLg {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $sreen == md {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $sreen == aboveSm {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $sreen == sm {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $sreen == xs {
+    @media only screen and (min-width: 320px) and (max-width: 479px) {
+      @content;
+    }
+  }
+}
+
+@mixin card-style($borderRound, $padding, $hasShadow: false) {
+  background: $grey-pale;
+  border: 0;
+  border-radius: $borderRound;
+  padding: $padding;
+
+  @if $hasShadow {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin input-wrapper-style() {
+  border: 1px solid $input-border-color;
+  border-radius: 3px;
+  height: 32px;
+}
+@mixin input-inner-style() {
+  color: $text-color;
+  font-size: 12px;
+  outline: none;
+  padding: 0 12px;
+  width: 100%;
+}
+
+@mixin scrollbar-style($w, $h, $bar, $track, $radius, $border) {
+  &::-webkit-scrollbar {
+    background-color: $bar;
+    height: $h;
+    width: $w;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $bar;
+    border: $border;
+    border-radius: $radius;
+
+    &:hover {
+      background-color: rgba($bar, 0.8);
+    }
+  }
+}
+
+@mixin no-selection-style() {
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+@mixin direct-animation {
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+}
+
+@mixin inverse-animation {
+  transform: rotate(180deg) translateY(50%);
+  transition: all 0.5s ease;
+}

@@ -1,0 +1,101 @@
+<div class="section-content">
+  <div class="btn-setting container">
+    <div class="btn-group">
+      <button class="btn btn-secondary"
+              [ngClass]="{'active': monthBool === true }"
+              (click)="this.monthBool = true">Month</button>
+      <button class="
+              btn
+              btn-secondary"
+              [ngClass]="{'active': monthBool === false}"
+              (click)="this.monthBool = false">Year</button>
+    </div>
+  </div>
+  <!-- month calendar -->
+  <div *ngIf="monthBool">
+    <section class="section-content container">
+      <div class="d-flex">
+        <button class="toggle-btn"
+                (click)="prevMonth()">
+          <</button> <h5>{{ this.months[this.currentMonth] }} &emsp; {{ this.currentYear }}</h5>
+            <button class="toggle-btn"
+                    (click)="nextMonth()">></button>
+      </div>
+      <div class="row">
+        <div class="header-day col"
+             *ngFor="let day of days">{{ day }}</div>
+      </div>
+      <div *ngFor="let wk of monthArr; let i = index;">
+        <div *ngIf="(monthArr[i].index !== '' && i !== 5) || (monthArr[5][0].index !== '')"
+             class="date-display row">
+          <div class="col no-pad date-grid"
+               *ngFor="let day of wk; let j = index;"
+               [ngClass]="{'today': day.fullDate === this.today }">
+            <p>{{ day.index }}</p>
+            <!-- <p>{{ day.fullDate }}</p> -->
+            <p *ngIf="day.event && day.event.length !== 0"
+               class="event-btn cal-btn"
+               [ngStyle]="{ 'background-color': day.fullDate < this.today ? '#7ed714' : '#ffc700'}"
+               (click)="viewEvent(i,j)">{{day.event.length}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div *ngIf="selectedDay === i"
+               class="expand-mth-calendar">
+            <h6 *ngIf="this.monthArr[i][this.daySelected].fullDate >= this.today">Upcoming Schedule</h6>
+            <h6 *ngIf="this.monthArr[i][this.daySelected].fullDate < this.today">Completed Schedule</h6>
+            <ul>
+              <li *ngFor="let events of this.monthArr[i][this.daySelected].event">{{ events }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- year calendar -->
+  <div *ngIf="!monthBool"
+       class="section-content year-grid container">
+    <div class="d-flex">
+      <button class="toggle-btn"
+              (click)="prevYear()">
+        <</button> <h5>{{ this.currentYear }}</h5>
+          <button class="toggle-btn"
+                  (click)="nextYear()">></button>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-3"
+           *ngFor="let month of yearArr; let k = index;">
+        <h5>{{ this.months[k] }}</h5>
+        <div class="container">
+          <div class="row">
+            <div class="col day-header"
+                 *ngFor="let yDay of yDays">{{ yDay }}</div>
+          </div>
+          <div *ngFor="let wk of month; let i = index;">
+            <div *ngIf="(month[i].index !== '' && i !== 5) || (month[5][0].index !== '')"
+                 class="date-display row">
+              <div class="col no-pad year-date-grid"
+                   *ngFor="let day of wk; let j = index;">
+                <p *ngIf="day.event && day.event.length === 0">{{ day.index }}</p>
+                <p class="got-event"
+                   [ngStyle]="{ 'background-color': day.fullDate < this.today ? '#7ed714' : '#ffc700'}"
+                   *ngIf="day.event && day.event.length !== 0"
+                   (click)="viewEventYear(i, j, k)">{{ day.index }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div *ngIf="selectedDay === i && selectedMth === k"
+                   class="expand-mth-calendar">
+                <h6 *ngIf="this.yearArr[k][i][this.daySelected].fullDate >= this.today">Upcoming Schedule</h6>
+                <h6 *ngIf="this.yearArr[k][i][this.daySelected].fullDate < this.today">Completed Schedule</h6>
+                <ul>
+                  <li *ngFor="let events of this.yearArr[k][i][this.daySelected].event">{{ events }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
