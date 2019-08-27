@@ -12,4 +12,4 @@ Download project and run npm install. Use `ng serve` to build and run the projec
 
 ## Month Calendar Display
 
-![alt text](https://github.com/JoabChua/angular-custom-calendar/blob/master/angular.json/month-cal.png)
+![Month Calendar](https://github.com/JoabChua/angular-custom-calendar/blob/master/month-cal.png)
