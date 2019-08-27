@@ -1,4 +1,4 @@
-# Custom Calendar
+# Angular 8 Custom Calendar
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
 
@@ -16,8 +16,13 @@ There is a light blue background highlight for today, and small circle highlight
 
 ![Month Calendar](https://github.com/JoabChua/angular-custom-calendar/blob/master/month-cal.png)
 
+![Month Calendar Expandable](https://github.com/JoabChua/angular-custom-calendar/blob/master/month-cal2.png)
+
 ## Year Calendar Display
 
 There is small circle highlight on the dates with events. Upon clicking the event highlight, an expandable will be toggle to show the event title.
 
 ![Year Calendar](https://github.com/JoabChua/angular-custom-calendar/blob/master/year-cal.png)
+
+![Year Calendar Expandable](https://github.com/JoabChua/angular-custom-calendar/blob/master/year-cal2.png)
+
