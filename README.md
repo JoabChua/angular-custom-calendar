@@ -12,4 +12,12 @@ Download project and run npm install. Use `ng serve` to build and run the projec
 
 ## Month Calendar Display
 
+There is a light blue background highlight for today, and small circle highlight for dates with events and the number of events shown on the circle. Upon clicking the event highlight, an expandable will be toggle to show the event title.
+
 ![Month Calendar](https://github.com/JoabChua/angular-custom-calendar/blob/master/month-cal.png)
+
+## Year Calendar Display
+
+There is small circle highlight on the dates with events. Upon clicking the event highlight, an expandable will be toggle to show the event title.
+
+![Year Calendar](https://github.com/JoabChua/angular-custom-calendar/blob/master/year-cal.png)
